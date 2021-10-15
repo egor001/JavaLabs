@@ -1,48 +1,25 @@
-package ru.mephi.lab1;
+package ru.mephi.hw2;
 
 public class MyList {
 
-    public static void main(String... args) {
-        MyList b = new MyList();
-        System.out.println(b.isEmpty());
-        b.add(12);
-        b.add(13);
-        b.add(14);
-        b.add(15);
-        b.add(16);
-        b.add(17);
-        System.out.println(b.remove(5));
-        System.out.println(b.isEmpty());
-        System.out.println(b.set(222, 1));
-        System.out.println(b.get(1));
-        //b.add(16);
-        //b.add(17);
-        // b.add(18);
-        System.out.println(b.size());
-        b.add(111, 1);
-        for (int i = 0; i < b.size(); i++) {
-            System.out.print(b.get(i) + " ");
-        }
-    }
-
-    private Object[] array;
+    private Integer[] array;
     private int size;
 
     public MyList() {
-        this.array = new Object[5];
+        this.array = new Integer[5];
         this.size = 0;
     }
-    public MyList(Object[] array){
+    public MyList(Integer[] array){
         this.size = array.length;
         this.array = array;
     }
 
-    public void add(Object arg) {
+    public void add(int arg) {
         array[this.size] = arg;
         this.size++;
         if (this.size == array.length) {
             int newsize = array.length + 5;
-            Object[] newArray = new Object[newsize];
+            Integer[] newArray = new Integer[newsize];
             System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
         }
@@ -61,8 +38,8 @@ public class MyList {
          */
     }//++
 
-    public void add(Object arg, int index) {
-        Object[] newArray = new Object[array.length];
+    public void add(int arg, int index) {
+        Integer[] newArray = new Integer[array.length];
         System.arraycopy(array, 0, newArray, 0, index);
         newArray[index] = arg;
         System.arraycopy(array, index, newArray, index + 1, array.length - index - 1);
@@ -70,7 +47,7 @@ public class MyList {
         this.size++;
         if (this.size == array.length) {
             int newsize = array.length + 5;
-            Object[] newArr = new Object[newsize];
+            Integer[] newArr = new Integer[newsize];
             System.arraycopy(array, 0, newArr, 0, array.length);
             array = newArr;
         }
@@ -99,11 +76,11 @@ public class MyList {
         return this.size;
     }//++
 
-    public Object get(int index) {
+    public Integer get(int index) {
         return array[index];
     }//++
 
-    public boolean contains(Object arg) {
+    public boolean contains(Integer arg) {
         boolean result;
         if (indexOf(arg) == -1) {
             result = false;
@@ -113,7 +90,7 @@ public class MyList {
         return result;
     }//++
 
-    public int indexOf(Object arg) {
+    public int indexOf(Integer arg) {
         int index = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == arg) {
@@ -124,15 +101,15 @@ public class MyList {
         return index;
     }//++
 
-    public Object set(Object arg, int index) {
-        Object temp = array[index];
+    public Integer set(Integer arg, int index) {
+        Integer temp = array[index];
         array[index] = arg;
         return temp;
     }//++
 
-    public Object remove(int index) {
-        Object temp = null;
-        Object[] newArray = new Object[array.length];
+    public Integer remove(int index) {
+        Integer temp = null;
+        Integer[] newArray = new Integer[array.length];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(array, index + 1, newArray, index, array.length - index - 1);
         if(array[index] != null){
@@ -141,31 +118,14 @@ public class MyList {
         array = newArray;
         this.size--;
         if(array.length - this.size > 5){
-            Object[] newArray1 = new Object[array.length - 5];
+            Integer[] newArray1 = new Integer[array.length - 5];
             System.arraycopy(array, 0, newArray1, 0, newArray1.length);
             array = newArray1;
         }
 
         return temp;
 
-        /*
-        if (findLast() % 5 != 0 || array.length == 5) {
-            Object[] newArray = new Object[array.length];
-            System.arraycopy(array, 0, newArray, 0, index);
-            System.arraycopy(array, index + 1, newArray, index, array.length - index - 1);
-            Object temp = array[index];
-            array = newArray;
-            return temp;
-            //дописать!!!
-        } else {
-            Object[] newArray = new Object[array.length - 5];
-            System.arraycopy(array, 0, newArray, 0, index);
-            System.arraycopy(array, index + 1, newArray, index, array.length - index - 6);
-            Object temp = array[index];
-            array = newArray;
-            return temp;
-        }
-        */
+
     }//++
 
     public boolean isEmpty() {
@@ -180,3 +140,4 @@ public class MyList {
     }//++
 
 }
+
