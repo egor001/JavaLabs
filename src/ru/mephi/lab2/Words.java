@@ -4,14 +4,15 @@ package ru.mephi.lab2;
 import java.util.*;
 
 public class Words {
-    public static void main(String... args){
+    public static void main(String... args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Введите строку");
-        String line = input.nextLine();
+        //System.out.println("Введите строку");
+        String line = "aa a aaa a ddd rr r tt t e ww w t a aaaaa";
         wordsList(line);
         correctLine(line);
 
     }
+
     public static void wordsList(String line) {
         Map<String, Integer> collection = new HashMap<>();
         line = line.trim();
@@ -33,18 +34,18 @@ public class Words {
                 System.out.println(key + ": " + value);
             }
 
-        }
-        else{
+        } else {
             System.out.println("введена пустая строка!");
         }
     }
-    public static void correctLine(String line){
+
+    public static void correctLine(String line) {
         line = line.trim();
         String newLine = "";
         Set<String> result = new HashSet<>();
         String[] words = line.split(" ");
-        for(int i =0; i< words.length;i++){
-            if(result.contains(words[i]) == false){
+        for (int i = 0; i < words.length; i++) {
+            if (result.contains(words[i]) == false) {
                 newLine = newLine + words[i] + " ";
             }
             result.add(words[i]);
