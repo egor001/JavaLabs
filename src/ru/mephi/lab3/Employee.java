@@ -1,8 +1,13 @@
 package ru.mephi.lab3;
+
 import java.util.*;
+
 import ru.mephi.lab3.Accountant;
+
 public class Employee {
-    enum Gender{MALE,FEMALE};
+    public enum Gender {MALE, FEMALE}
+
+    ;
     //enum Role{STAFF,MANAGER,EXECUTIVE};
     private String givenName;
     private String surName;
@@ -16,58 +21,72 @@ public class Employee {
     private String city;
     private String state;
     private String code;//код области
-    public String getDept(){
+
+    public String getDept() {
         return this.dept;
     }
-    public Gender getGender(){
+
+    public Gender getGender() {
         return this.gender;
     }
-    public Role getRole(){
+
+    public Role getRole() {
         return this.role;
     }
-    public String getGivenName(){
+
+    public String getGivenName() {
         return this.givenName;
     }
-    public String getSurName(){
+
+    public String getSurName() {
         return this.surName;
     }
-    public int getAge(){
+
+    public int getAge() {
         return this.age;
     }
-    public void setGivenName(String temp){
-        this.givenName=temp;
+
+    public void setGivenName(String temp) {
+        this.givenName = temp;
     }
-    public void setSurName(String temp){
-        this.surName=temp;
+
+    public void setSurName(String temp) {
+        this.surName = temp;
     }
-    public void setAge(int temp){
-        this.age=temp;
+
+    public void setAge(int temp) {
+        this.age = temp;
     }
-    public void setRole(Role temp){
+
+    public void setRole(Role temp) {
         this.role = temp;
     }
-    public void setGender(Gender temp){
+
+    public void setGender(Gender temp) {
         this.gender = temp;
     }
-    public  void setDept(String temp){
+
+    public void setDept(String temp) {
         this.dept = temp;
     }
-    public String toString(){
+
+    public String toString() {
         return "Employee{" +
-                "givenName= '"+givenName + '\'' +
-                ",surName= '"+surName+'\''+
-                ",age= '" + age+'\''+
-                ",gender= '"+ gender +'\''+
-                ",role= '"+role +'\''+
-                ",dept= '"+dept+'\''+
-                ",eMail= '"+eMail+'\''+
-                ",phone= '"+phone+'\''+
-                ",address= '"+address+'\''+
-                ",city= '"+city+'\''+
-                ",state= '"+state+'\''+
-                ",code= '"+code+'\''+"}";
+                "givenName= '" + givenName + '\'' +
+                ",surName= '" + surName + '\'' +
+                ",age= '" + age + '\'' +
+                ",gender= '" + gender + '\'' +
+                ",role= '" + role + '\'' +
+                ",dept= '" + dept + '\'' +
+                ",eMail= '" + eMail + '\'' +
+                ",phone= '" + phone + '\'' +
+                ",address= '" + address + '\'' +
+                ",city= '" + city + '\'' +
+                ",state= '" + state + '\'' +
+                ",code= '" + code + '\'' + "}";
     }
-    public static class Builder{
+
+    public static class Builder {
         private String givenName;
         private String surName;
         private int age;
@@ -81,72 +100,85 @@ public class Employee {
         private String state;
         private String code;
 
-        public Builder setGivenName(String temp){
+        public Builder setGivenName(String temp) {
             this.givenName = temp;
             return this;
         }
-        public Builder setSurName(String temp){
+
+        public Builder setSurName(String temp) {
             this.surName = temp;
             return this;
         }
-        public Builder setAge(int temp){
+
+        public Builder setAge(int temp) {
             this.age = temp;
             return this;
         }
-        public Builder setGender(Gender temp){
+
+        public Builder setGender(Gender temp) {
             this.gender = temp;
             return this;
         }
-        public Builder setRole(Role temp){
+
+        public Builder setRole(Role temp) {
             this.role = temp;
             return this;
         }
-        public Builder setDept(String temp){
+
+        public Builder setDept(String temp) {
             this.dept = temp;
             return this;
         }
-        public Builder setEMail(String temp){
+
+        public Builder setEMail(String temp) {
             this.eMail = temp;
             return this;
         }
-        public Builder setPhone(String temp){
+
+        public Builder setPhone(String temp) {
             this.phone = temp;
             return this;
         }
-        public Builder setAddress(String temp){
+
+        public Builder setAddress(String temp) {
             this.address = temp;
             return this;
         }
-        public Builder setCiy(String temp){
+
+        public Builder setCiy(String temp) {
             this.city = temp;
             return this;
         }
-        public Builder setState(String temp){
+
+        public Builder setState(String temp) {
             this.state = temp;
             return this;
         }
-        public Builder setCode(String temp){
+
+        public Builder setCode(String temp) {
             this.code = temp;
             return this;
         }
-        public Employee build(){
+
+        public Employee build() {
             Employee employee = new Employee();
-            employee.givenName= this.givenName;
-            employee.surName= this.surName;
+            employee.givenName = this.givenName;
+            employee.surName = this.surName;
             employee.age = this.age;
-            employee.gender=this.gender;
-            employee.role=this.role;
-            employee.dept=this.dept;
-            employee.eMail=this.eMail;
-            employee.phone=this.phone;
-            employee.address=this.address;
-            employee.city=this.city;
-            employee.state=this.state;
-            employee.code=this.code;
+            employee.gender = this.gender;
+            employee.role = this.role;
+            employee.dept = this.dept;
+            employee.eMail = this.eMail;
+            employee.phone = this.phone;
+            employee.address = this.address;
+            employee.city = this.city;
+            employee.state = this.state;
+            employee.code = this.code;
             return employee;
         }
     }
-    public static List<Employee> createShortList(){
+
+    public static List<Employee> createShortList() {
         List<Employee> list = new ArrayList<>();
         list.add(new Builder()
                 .setGivenName("Artem")
@@ -248,31 +280,33 @@ public class Employee {
                 .build());
         return list;
     }
-    public static void main(String... args){
+
+    public static void main(String... args) {
         List<Employee> newList = Employee.createShortList();
         System.out.println("премии женщинам сотрудникам:");
         newList.stream()
-                .filter(p->p.getGender() == Gender.FEMALE)
-                .forEach(p->Accountant.payPremium(p));
-        newList = Employee.createShortList();
+                .filter(p -> p.getGender() == Gender.FEMALE)
+                .forEach(p -> Accountant.payPremium(p));
+        //newList = Employee.createShortList();
         System.out.println("зарплата сотрудникам отдела продаж:");
         newList.stream()
-                .filter(p->p.getDept().equals("Sales"))
-                .forEach(p->Accountant.paySalary(p));
-        newList = Employee.createShortList();
+                .filter(p -> p.getDept().equals("Sales"))
+                .forEach(p -> Accountant.paySalary(p));
+        //newList = Employee.createShortList();
         System.out.println("премии сотрудникам отдела бугалтерии старше 30:");
         newList.stream()
-                .filter(p->p.getDept().equals("accounting") && p.getAge() > 30)
-                .forEach(p->Accountant.payPremium(p));
-        newList = Employee.createShortList();
+                .filter(p -> p.getDept().equals("accounting") && p.getAge() > 30)
+                .forEach(p -> Accountant.payPremium(p));
+        //newList = Employee.createShortList();
         System.out.println("зарплаты менеджерам:");
         newList.stream()
-                .filter(p->p.getRole().equals(Role.MANAGER))
-                .forEach(p->Accountant.paySalary(p));
-        newList = Employee.createShortList();
+                .filter(p -> p.getRole().equals(Role.MANAGER))
+                .forEach(p -> Accountant.paySalary(p));
+        //newList = Employee.createShortList();
         System.out.println("премии стаффа:");
         newList.stream()
-                .filter(p->p.getRole().equals(Role.STAFF))
-                .forEach(p->Accountant.payPremium(p));
+                .filter(p -> p.getRole().equals(Role.STAFF))
+                .forEach(p -> Accountant.payPremium(p));
+
     }
 }
