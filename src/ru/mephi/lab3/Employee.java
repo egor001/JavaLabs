@@ -21,7 +21,7 @@ public class Employee {
     private String city;
     private String state;
     private String code;//код области
-
+    private int salary;
     public String getDept() {
         return this.dept;
     }
@@ -45,6 +45,7 @@ public class Employee {
     public int getAge() {
         return this.age;
     }
+    public int getSalary(){return this.salary;}
 
     public void setGivenName(String temp) {
         this.givenName = temp;
@@ -70,6 +71,10 @@ public class Employee {
         this.dept = temp;
     }
 
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     public String toString() {
         return "Employee{" +
                 "givenName= '" + givenName + '\'' +
@@ -83,7 +88,8 @@ public class Employee {
                 ",address= '" + address + '\'' +
                 ",city= '" + city + '\'' +
                 ",state= '" + state + '\'' +
-                ",code= '" + code + '\'' + "}";
+                ",code= '" + code + '\'' +
+                ",salary= '" + salary +'\'' +"}";
     }
 
     public static class Builder {
@@ -99,6 +105,7 @@ public class Employee {
         private String city;
         private String state;
         private String code;
+        private int salary;
 
         public Builder setGivenName(String temp) {
             this.givenName = temp;
@@ -159,6 +166,10 @@ public class Employee {
             this.code = temp;
             return this;
         }
+        public Builder setSalary(int temp){
+            this.salary = temp;
+            return this;
+        }
 
         public Employee build() {
             Employee employee = new Employee();
@@ -174,6 +185,7 @@ public class Employee {
             employee.city = this.city;
             employee.state = this.state;
             employee.code = this.code;
+            employee.salary = this.salary;
             return employee;
         }
     }
@@ -193,6 +205,7 @@ public class Employee {
                 .setCiy("Moscow")
                 .setState("Moscow")
                 .setCode("77")
+                .setSalary(10000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Ivan")
@@ -207,6 +220,7 @@ public class Employee {
                 .setCiy("Kolomna")
                 .setState("near Moscow")
                 .setCode("11")
+                .setSalary(15000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Elena")
@@ -221,6 +235,7 @@ public class Employee {
                 .setCiy("St.Peterburg")
                 .setState("St.Peterburg")
                 .setCode("88")
+                .setSalary(100000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Vika")
@@ -235,6 +250,7 @@ public class Employee {
                 .setCiy("Ufa")
                 .setState("ashkortostan resp.")
                 .setCode("11")
+                .setSalary(30000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Kiril")
@@ -249,6 +265,7 @@ public class Employee {
                 .setCiy("Sochi")
                 .setState("Sochi")
                 .setCode("99")
+                .setSalary(85000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Egor")
@@ -263,6 +280,7 @@ public class Employee {
                 .setCiy("Moscow")
                 .setState("Moscow")
                 .setCode("77")
+                .setSalary(50000)
                 .build());
         list.add(new Builder()
                 .setGivenName("Masha")
@@ -277,6 +295,7 @@ public class Employee {
                 .setCiy("Obninsk")
                 .setState("near Moscow")
                 .setCode("11")
+                .setSalary(600000)
                 .build());
         return list;
     }
