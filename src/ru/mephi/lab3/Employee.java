@@ -22,6 +22,7 @@ public class Employee {
     private String state;
     private String code;//код области
     private int salary;
+
     public String getDept() {
         return this.dept;
     }
@@ -45,7 +46,10 @@ public class Employee {
     public int getAge() {
         return this.age;
     }
-    public int getSalary(){return this.salary;}
+
+    public int getSalary() {
+        return this.salary;
+    }
 
     public void setGivenName(String temp) {
         this.givenName = temp;
@@ -89,7 +93,7 @@ public class Employee {
                 ",city= '" + city + '\'' +
                 ",state= '" + state + '\'' +
                 ",code= '" + code + '\'' +
-                ",salary= '" + salary +'\'' +"}";
+                ",salary= '" + salary + '\'' + "}";
     }
 
     public static class Builder {
@@ -166,7 +170,8 @@ public class Employee {
             this.code = temp;
             return this;
         }
-        public Builder setSalary(int temp){
+
+        public Builder setSalary(int temp) {
             this.salary = temp;
             return this;
         }
@@ -304,7 +309,7 @@ public class Employee {
         List<Employee> newList = Employee.createShortList();
         System.out.println("премии женщинам сотрудникам:");
         newList.stream()
-                .filter(p -> p.getGender() == Gender.FEMALE)
+                .filter(p -> p.getGender().equals(Gender.FEMALE))
                 .forEach(p -> Accountant.payPremium(p));
         //newList = Employee.createShortList();
         System.out.println("зарплата сотрудникам отдела продаж:");
