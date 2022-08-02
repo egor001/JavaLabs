@@ -1,0 +1,8 @@
+Для своих реализованных классов Employee в лабораторной работе:
+
+Создать и использовать Consumer Lambda Expression
+Создать и использовать Function Lambda Expression
+Создать и использовать Supplier Lambda Expression
+Создать и использовать BiPredicate Lambda Expression
+
+Кейсы необходимо придумать самостоятельно, главное, чтобы были реализованы данные функциональные интерфейсы
