@@ -1,0 +1,36 @@
+2. Реализовать словарь (map)
+  Операции
+  - Положить по ключу значение:          public void put(Object key, Object value);
+  - Получить по ключу:                   public Object get(Object key);
+  - Получить по ключу,                   public Object get(Object key, Object bydefault);
+    если значение null, тогда надо 
+    вернуть значение по умолчанию, 
+    которое задается вторым параметром.
+    Значение по умолчанию необходимо
+    сохранить.
+  - Удалить по ключу, возвращает текущее public Object remove(Object key);
+    значение 
+  - Проверить наличие ключа:             public boolean keyContains(Object key);
+  - Получить список ключей:              public List getKeys();
+  - Получить список значений:            public List getValues();
+  - Получить список пар: ключ, значение: public List getEntries();
+  - Размер словаря:                      public int size();
+  - Пустой или нет:                      public boolean isEmpty();
+  
+3. Реализация дерева (Tree)
+  Операции
+  - Добавить ребенка:                        public void addChild(Node value);
+  - Удалить ребенка                          public boolean removeChild(Node value);
+                                             public boolean removeChild(int index);
+  - Получить ребенка                         public Node getChild(int index);
+  - Получить родителя                        public Node getParent(); (если родителя нет, тогда null)
+  - Получить путь от ребенка до родителя:    public List path();
+  - Получить поддерево от какой-нибудь узла: public Tree subtree();
+  - Преобразовать дерево в список:           public List toList();
+  - Найти узел                               public Node find(Object value);
+  - Найти общего родителя между узлами       public Node findParent(Node another);
+  - Количество узлов:                        public int size();
+  - Пустое дерево или нет:                   public boolean isEmpty();
+Node - это класс узел, который используется в Tree. Его требуется сделать. API для этого класса оставляется на ваше усмотрение.
+Исключения не используются. В случае неопределенности - вернуть null.
+List используется тот, что был сделан как первое задание.
